@@ -26,7 +26,25 @@ We used `XLOOKUP` and `INDEX MATCH` to consolidate data.
   - **Customer Name:** `=XLOOKUP(C2;customers!$A$1:$A$1001;customers!$B$1:$B$1001;;0)`
   - **Email (handling blanks):** `=IF(XLOOKUP(C2;customers!$A$1:$A$1001;customers!$C$1:$C$1001;;0) = 0;""; XLOOKUP(C2;customers!$A$1:$A$1001;customers!$C$1:$C$1001;;0))`
 - **Gather Product Data:**
-  - `INDEX MATCH` was used to retrieve product details like Coffee Type, Roast Type, and Size.
+  - Used `INDEX MATCH` to retrieve product details like Coffee Type, Roast Type, and Size: `=INDEX(products!$A$1:$G$49;MATCH(orders!$D2;products!$A$1:$A$49;0);MATCH(orders!I$1;products!$A$1:$G$1;0))`
+
+### Step 2: Data Cleaning & Transformation
+We expanded abbreviations and added descriptive names for clarity.
+
+- **Create Full Coffee Type Names:**
+  - `=IF(I2="Rob";"Robusta"; IF(I2="Exc";"Excelsa"; IF(I2="Ara";"Arabica"; IF(I2="Lib";"Librerica";""))))`
+- **Create Full Roast Type Names:**
+  - `=IF(J2="M";"Medium"; IF(J2="L"; "Light"; IF(J2="D";"Dark";"")))`
+
+### Step 3: Formatting
+We applied consistent formatting for better readability.
+
+- **Order Date:** `dd-mmm-yyyy`
+- **Size:** `0,0 kg`
+- **Unit Price & Sales:** Currency (`€`)
+
+### Step 4: Finalizing the Table
+We removed duplicates and converted the data range into an official Excel Table (`CMD + T`) to enable structured referencing and dynamic analysis.
 
 ---
 
