@@ -12,8 +12,21 @@
 This project involves creating a comprehensive sales dashboard in Excel for a coffee shop. The goal is to analyze sales data, understand customer behavior, and identify key trends to drive business growth. The dashboard will provide actionable insights through intuitive visualizations.
 
 <div align="center">
-  <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Coffee Shop" width="800"/>
+  <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Coffee Shop" width="600"/>
 </div>
+
+---
+
+## 🚀 Project Progression
+
+### Step 1: Data Gathering & Consolidation
+We used `XLOOKUP` and `INDEX MATCH` to consolidate data.
+
+- **Gather Customer Data:**
+  - **Customer Name:** `=XLOOKUP(C2;customers!$A$1:$A$1001;customers!$B$1:$B$1001;;0)`
+  - **Email (handling blanks):** `=IF(XLOOKUP(C2;customers!$A$1:$A$1001;customers!$C$1:$C$1001;;0) = 0;""; XLOOKUP(C2;customers!$A$1:$A$1001;customers!$C$1:$C$1001;;0))`
+- **Gather Product Data:**
+  - `INDEX MATCH` was used to retrieve product details like Coffee Type, Roast Type, and Size.
 
 ---
 
