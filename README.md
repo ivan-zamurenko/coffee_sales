@@ -46,6 +46,19 @@ We applied consistent formatting for better readability.
 ### Step 4: Finalizing the Table
 We removed duplicates and converted the data range into an official Excel Table (`CMD + T`) to enable structured referencing and dynamic analysis.
 
+### Step 5: Creating a Pivot Table for Total Sales
+We created a Pivot Table to analyze sales over time.
+
+- **Layout:** Set to "Tabular Form" for clear visualization.
+- **Totals:** Turned off Grand Totals and Subtotals to focus on the data.
+
+### Step 6: Designing the Sales Chart
+We enhanced the chart for better insights and interactivity.
+
+- **Design:** Changed line colors for better visibility.
+- **Elements:** Added a Chart Title and a Primary Vertical Axis Title.
+- **Filtering:** Inserted a Timeline for intuitive date range filtering.
+
 ---
 
 ## 🗂️ Data Model
