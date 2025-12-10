@@ -36,9 +36,9 @@ The dashboard is composed of several key analytical components:
   - **Slicers:** Provide granular filtering for `Roast Type`, `Size`, and `Loyalty Card` status, enabling deep-dive analysis.
 
 <div align="center">
-  <img src="screenshots/total_sales_chart.png" alt="Total Sales Chart" width="49%"/>
-  <img src="screenshots/country_sales_chart.png" alt="Sales by Country Chart" width="49%"/>
-  <img src="screenshots/top5_customers_chart.png" alt="Top 5 Customers Chart" width="49%"/>
+  <img src="screenshots/pivot_chart.png" alt="Total Sales Chart" width="49%"/>
+  <img src="screenshots/country_pivot_table.png" alt="Sales by Country Chart" width="49%"/>
+  <img src="screenshots/top5_customers_pivot_chart.png" alt="Top 5 Customers Chart" width="49%"/>
   <img src="screenshots/slicers.png" alt="Slicers" width="49%"/>
 </div>
 
