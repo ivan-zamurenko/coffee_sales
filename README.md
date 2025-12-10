@@ -1,124 +1,80 @@
-# ☕ Coffee Shop Sales Analytics
+# ☕ Coffee Sales Interactive Dashboard
 
-> **Excel-based dashboard for analyzing coffee sales and customer data**
+> **A comprehensive sales dashboard built in Excel to analyze coffee shop performance, customer behavior, and product trends.**
 
 [![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://www.microsoft.com/en-us/microsoft-365/excel)
 [![Data Analysis](https://img.shields.io/badge/Data_Analysis-4285F4?style=for-the-badge&logo=google-analytics&logoColor=white)](https://github.com/ivan-zamurenko/coffee-sales)
+[![Business Intelligence](https://img.shields.io/badge/Business_Intelligence-FF6B6B?style=for-the-badge&logo=powerbi&logoColor=white)](https://github.com/ivan-zamurenko/coffee-sales)
+
+---
+
+## 📊 Final Dashboard
+
+<div align="center">
+  <img src="screenshots/dashboard.png" alt="Coffee Sales Dashboard" width="100%"/>
+</div>
 
 ---
 
 ## 🎯 Project Overview
 
-This project involves creating a comprehensive sales dashboard in Excel for a coffee shop. The goal is to analyze sales data, understand customer behavior, and identify key trends to drive business growth. The dashboard will provide actionable insights through intuitive visualizations.
+This project showcases the end-to-end process of building a dynamic and interactive sales dashboard in Microsoft Excel. The primary goal was to transform raw sales data into actionable insights, allowing stakeholders to easily analyze performance across different dimensions like time, product, and customer demographics.
+
+The final dashboard integrates multiple charts, slicers, and a timeline, providing a centralized and user-friendly tool for business intelligence.
+
+---
+
+## 🚀 Key Features & Visualizations
+
+The dashboard is composed of several key analytical components:
+
+- **Total Sales Over Time:** A line chart tracking sales performance across different coffee types, allowing for trend analysis over monthly and yearly periods.
+- **Sales by Country:** A bar chart highlighting the top-performing countries by sales volume.
+- **Top 5 Customers:** A focused bar chart identifying the most valuable customers, enabling targeted marketing and loyalty programs.
+- **Interactive Controls:**
+  - **Timeline:** Allows for intuitive date-range filtering across the entire dashboard.
+  - **Slicers:** Provide granular filtering for `Roast Type`, `Size`, and `Loyalty Card` status, enabling deep-dive analysis.
 
 <div align="center">
-  <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Coffee Shop" width="600"/>
+  <img src="screenshots/total_sales_chart.png" alt="Total Sales Chart" width="49%"/>
+  <img src="screenshots/country_sales_chart.png" alt="Sales by Country Chart" width="49%"/>
+  <img src="screenshots/top5_customers_chart.png" alt="Top 5 Customers Chart" width="49%"/>
+  <img src="screenshots/slicers.png" alt="Slicers" width="49%"/>
 </div>
 
 ---
 
-## 🚀 Project Progression
+## 🛠️ Methodology & Technical Skills
 
-### Step 1: Data Gathering & Consolidation
-We used `XLOOKUP` and `INDEX MATCH` to consolidate data.
+The dashboard was built following a structured, multi-step process, demonstrating a wide range of Excel capabilities.
 
-- **Gather Customer Data:**
-  - **Customer Name:** `=XLOOKUP(C2;customers!$A$1:$A$1001;customers!$B$1:$B$1001;;0)`
-  - **Email (handling blanks):** `=IF(XLOOKUP(C2;customers!$A$1:$A$1001;customers!$C$1:$C$1001;;0) = 0;""; XLOOKUP(C2;customers!$A$1:$A$1001;customers!$C$1:$C$1001;;0))`
-- **Gather Product Data:**
-  - Used `INDEX MATCH` to retrieve product details like Coffee Type, Roast Type, and Size: `=INDEX(products!$A$1:$G$49;MATCH(orders!$D2;products!$A$1:$A$49;0);MATCH(orders!I$1;products!$A$1:$G$1;0))`
-
-### Step 2: Data Cleaning & Transformation
-We expanded abbreviations and added descriptive names for clarity.
-
-- **Create Full Coffee Type Names:**
-  - `=IF(I2="Rob";"Robusta"; IF(I2="Exc";"Excelsa"; IF(I2="Ara";"Arabica"; IF(I2="Lib";"Librerica";""))))`
-- **Create Full Roast Type Names:**
+### 1. Data Consolidation & Enrichment
+- **Data Gathering:** Used `XLOOKUP` and `INDEX MATCH` to merge data from `Orders`, `Customers`, and `Products` tables into a single, unified dataset.
+  - `Customer Name: =XLOOKUP(C2;customers!$A$1:$A$1001;customers!$B$1:$B$1001;;0)`
+  - `Product Details: =INDEX(products!$A$1:$G$49;MATCH(orders!$D2;products!$A$1:$A$49;0);MATCH(orders!I$1;products!$A$1:$G$1;0))`
+- **Data Transformation:** Employed `IF` statements to expand abbreviations into full names (e.g., "M" to "Medium").
   - `=IF(J2="M";"Medium"; IF(J2="L"; "Light"; IF(J2="D";"Dark";"")))`
+- **Data Cleaning:** Removed duplicate entries and converted the final dataset into a formal Excel Table (`Cmd + T`) for structured referencing.
 
-### Step 3: Formatting
-We applied consistent formatting for better readability.
+### 2. PivotTables & Charting
+- **PivotTables:** Created multiple PivotTables to aggregate and summarize data for each visualization (Total Sales, Sales by Country, Top 5 Customers).
+- **PivotCharts:** Built corresponding PivotCharts from the aggregated data.
+- **Formatting:** Applied custom formatting, including currency symbols (`€`), date formats (`dd-mmm-yyyy`), and consistent color schemes to enhance readability and visual appeal.
 
-- **Order Date:** `dd-mmm-yyyy`
-- **Size:** `0,0 kg`
-- **Unit Price & Sales:** Currency (`€`)
-
-### Step 4: Finalizing the Table
-We removed duplicates and converted the data range into an official Excel Table (`CMD + T`) to enable structured referencing and dynamic analysis.
-
-### Step 5: Creating a Pivot Table for Total Sales
-We created a Pivot Table to analyze sales over time.
-
-- **Layout:** Set to "Tabular Form" for clear visualization.
-- **Totals:** Turned off Grand Totals and Subtotals to focus on the data.
-
-<div align="center">
-  <img src="screenshots/pivot_table.png" alt="Pivot Table" width="600"/>
-</div>
-
-### Step 6: Designing the Sales Chart
-We enhanced the chart for better insights and interactivity.
-
-- **Design:** Changed line colors for better visibility.
-- **Elements:** Added a Chart Title and a Primary Vertical Axis Title.
-- **Filtering:** Inserted a Timeline for intuitive date range filtering.
-
-<div align="center">
-  <img src="screenshots/total_sales_chart.png" alt="Total Sales Chart" width="800"/>
-  <img src="screenshots/timeline.png" alt="Timeline" width="800"/>
-</div>
-
-### Step 7: Adding Slicers for Advanced Filtering
-We inserted slicers to provide granular filtering options.
-
-- **Slicers Added:** `Roast Type Name` & `Size`.
-- **Loyalty Card Slicer:**
-  - First, we added a "Loyalty Card" column to our main data table using `XLOOKUP`: `=XLOOKUP([@[Customer ID]];customers!$A$1:$A$1001;customers!$I$1:$I$1001;;0)`
-  - Then, we inserted a slicer based on this new column.
-- **Formatting:** Applied custom styling to the slicers to match the dashboard's design.
-
-<div align="center">
-  <img src="screenshots/slicers.png" alt="Slicers" width="600"/>
-</div>
+### 3. Dashboard Assembly & Interactivity
+- **Dashboard Layout:** Assembled all charts and controls onto a single "Dashboard" sheet.
+- **Slicers & Timelines:** Inserted slicers and a timeline for intuitive, user-driven filtering.
+- **Report Connections:** Connected all slicers and the timeline to every PivotTable on the dashboard, ensuring that all visualizations update in unison based on user selections.
 
 ---
 
 ## 🗂️ Data Model
 
-The data is structured into three main tables:
+The analysis is based on three core tables:
 
-### 📦 Orders Table
-| Field       | Description                          |
-|-------------|--------------------------------------|
-| Order ID    | Unique identifier for each order     |
-| Order Date  | Date the order was placed            |
-| Customer ID | Foreign key linking to Customer table|
-| Product ID  | Foreign key linking to Product table |
-| Quantity    | Number of units sold in the order    |
-
-### 🧑‍🤝‍🧑 Customers Table
-| Field          | Description                          |
-|----------------|--------------------------------------|
-| Customer ID    | Unique identifier for each customer  |
-| Customer Name  | Name of the customer                 |
-| Email          | Customer's email address             |
-| Phone Number   | Customer's phone number              |
-| Address Line 1 | Customer's street address            |
-| City           | City of residence                    |
-| Country        | Country of residence                 |
-| Postcode       | Postal code                          |
-| Loyalty Card   | Whether the customer has a loyalty card |
-
-### ☕ Products Table
-| Field          | Description                          |
-|----------------|--------------------------------------|
-| Product ID     | Unique identifier for each product   |
-| Coffee Type    | Type of coffee (e.g., Arabica, Robusta) |
-| Roast Type     | Roast level (e.g., Light, Medium, Dark) |
-| Size           | Size of the product (e.g., 250g, 1kg) |
-| Unit Price     | Price per unit                       |
-| Price per 100g | Price normalized to 100g             |
-| Profit         | Profit margin for the product        |
+- **📦 Orders Table:** Contains transactional data like `Order ID`, `Order Date`, `Customer ID`, `Product ID`, and `Quantity`.
+- **🧑‍🤝‍🧑 Customers Table:** Holds customer demographic information, including `Customer Name`, `Email`, `Country`, and `Loyalty Card` status.
+- **☕ Products Table:** Includes product details such as `Coffee Type`, `Roast Type`, `Size`, `Unit Price`, and `Profit`.
 
 ---
 
