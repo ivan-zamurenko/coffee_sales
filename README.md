@@ -52,12 +52,34 @@ We created a Pivot Table to analyze sales over time.
 - **Layout:** Set to "Tabular Form" for clear visualization.
 - **Totals:** Turned off Grand Totals and Subtotals to focus on the data.
 
+<div align="center">
+  <img src="screenshots/pivot_table.png" alt="Pivot Table" width="600"/>
+</div>
+
 ### Step 6: Designing the Sales Chart
 We enhanced the chart for better insights and interactivity.
 
 - **Design:** Changed line colors for better visibility.
 - **Elements:** Added a Chart Title and a Primary Vertical Axis Title.
 - **Filtering:** Inserted a Timeline for intuitive date range filtering.
+
+<div align="center">
+  <img src="screenshots/total_sales_chart.png" alt="Total Sales Chart" width="800"/>
+  <img src="screenshots/timeline.png" alt="Timeline" width="800"/>
+</div>
+
+### Step 7: Adding Slicers for Advanced Filtering
+We inserted slicers to provide granular filtering options.
+
+- **Slicers Added:** `Roast Type Name` & `Size`.
+- **Loyalty Card Slicer:**
+  - First, we added a "Loyalty Card" column to our main data table using `XLOOKUP`: `=XLOOKUP([@[Customer ID]];customers!$A$1:$A$1001;customers!$I$1:$I$1001;;0)`
+  - Then, we inserted a slicer based on this new column.
+- **Formatting:** Applied custom styling to the slicers to match the dashboard's design.
+
+<div align="center">
+  <img src="screenshots/slicers.png" alt="Slicers" width="600"/>
+</div>
 
 ---
 
